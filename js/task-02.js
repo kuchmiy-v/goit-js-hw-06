@@ -1,23 +1,19 @@
 const ingredients = [
-  'Potatoes',
-  'Mushrooms',
-  'Garlic',
-  'Tomatos',
-  'Herbs',
-  'Condiments',
+  "Potatoes",
+  "Mushrooms",
+  "Garlic",
+  "Tomatos",
+  "Herbs",
+  "Condiments",
 ];
 
 /* const listContent = ingredients.reduce((acc, ingredient) => acc + `<li>${ingredient}</li>`, "");
 const list = `<ul>${listContent}</ul>`;
-document.body.insertAdjacentHTML("afterbegin", list); */
+document.body.insertAdjacentHTML("beforeend", list); */
 
-const ulEl = document.createElement("ul");
+const listContent = ingredients
+  .map((ingredient) => `<li class="item">${ingredient}</li>`)
+  .join("");
+const list = `<ul>${listContent}</ul>`;
 
-for (const ingredient of ingredients) {
-  const liEl = document.createElement("li");
-  liEl.textContent = ingredient;
-  liEl.classList.add("item");
-  ulEl.appendChild(liEl);
-}
-
-document.body.prepend(ulEl);
+document.body.insertAdjacentHTML("beforeend", list);
